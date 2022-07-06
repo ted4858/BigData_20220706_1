@@ -12,7 +12,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
-    int b_state = 1;
+    boolean isOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,16 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (b_state == 1) {
+                if (isOn) {
                     textView.setText("Good Bye~");
-                    //button.setBackgroundColor();
-                    b_state++;
-                }else if(b_state == 2){
+                    button.setTextColor(Color.argb(255,255,255,255));
+                    button.setBackgroundColor(Color.argb(255,0,0,0));
+                    isOn = false;
+                }else{
                     textView.setText("Hello World!");
-                    //button.setBackgroundColor();
-                    b_state--;
+                    button.setTextColor(Color.argb(255,0,0,0));
+                    button.setBackgroundColor(Color.argb(255,255,255,255));
+                    isOn = true;
                 }
             }
         });
