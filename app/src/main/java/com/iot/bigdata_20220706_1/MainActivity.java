@@ -1,6 +1,8 @@
 package com.iot.bigdata_20220706_1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +12,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
-    int count = 1;
+    int b_state = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +24,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (count == 1) {
+                if (b_state == 1) {
                     textView.setText("Good Bye~");
-                    count++;
-                }else if(count == 2){
+                    //button.setBackgroundColor();
+                    b_state++;
+                }else if(b_state == 2){
                     textView.setText("Hello World!");
-                    count--;
+                    //button.setBackgroundColor();
+                    b_state--;
                 }
             }
         });
